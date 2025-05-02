@@ -1,51 +1,3 @@
-// import { useContext, useState } from "react";
-// import { AddressContext } from "../contexts/AddressContext";
-// import AddressForm from "../components/AddressForm";
-
-// const Address = () => {
-//   const { address } = useContext(AddressContext);
-//   const [isFormVisible, setIsFormVisible] = useState(false);
-
-//   const handleShowForm = () => {
-//     setIsFormVisible(true);
-//   };
-//   return (
-//     <>
-//       <div>Delivery Address</div>
-//       <div>
-//         {address.length > 0 ? (
-//           address.map((add, index) => {
-//             return (
-//               <label key={index} htmlFor="address">
-//                 <input type="radio" name="address" id="address" />
-//                 <h4>
-//                   {add.name} {add.mobileNumber}
-//                 </h4>
-//                 <p>
-//                   {add.locality}, {add.address}, {add.state}, - {add.pincode}
-//                 </p>
-//                 <button type="button" className="btn btn-primary">
-//                   Deliver Here
-//                 </button>
-//               </label>
-//             );
-//           })
-//         ) : (
-//           <p>No address found</p>
-//         )}
-//       </div>
-//       <div className="text-primary" onClick={handleShowForm}>
-//         <i className="bi bi-plus"></i>{" "}
-//         <span className="">Add a new address</span>
-//       </div>
-//       {isFormVisible && (
-//         <AddressForm onSubmitSuccess={() => setIsFormVisible(false)} />
-//       )}
-//     </>
-//   );
-// };
-
-// export default Address;
 
 import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
@@ -63,7 +15,6 @@ const Address = () => {
   const [editIndex, setEditIndex] = useState(null);
   const navigate = useNavigate();
 
-  // Calculate total amount from cartItems (without useMemo)
   const totalAmount = cartItems.reduce(
     (total, item) => total + (item.price || 0),
     0
@@ -71,7 +22,6 @@ const Address = () => {
 
   const handleShowForm = () => {
     setIsFormVisible(true);
-    // Hide edit form if it's open
     setIsEditFormVisible(false);
   };
 
@@ -85,15 +35,12 @@ const Address = () => {
   };
 
   const handleAddressEditBtn = (addressData, index) => {
-    // Set the address data to edit and its index
     setAddressToEdit(addressData);
     setEditIndex(index);
     setIsEditFormVisible(true);
-    // Hide add form if it's open
     setIsFormVisible(false);
   };
 
-  // Free delivery for all items
   const deliveryCharge = 0;
   const totalPayable = totalAmount + deliveryCharge;
 
@@ -196,7 +143,6 @@ const Address = () => {
           )}
         </div>
 
-        {/* Price Details Section - aligned with delivery section */}
         {cartItems.length > 0 && (
           <div className="col-lg-4">
             <div className="card shadow-sm">

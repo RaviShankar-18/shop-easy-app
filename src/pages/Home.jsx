@@ -5,10 +5,9 @@ import Header from "../components/headers/Header";
 import useFetch from "../hooks/useFetch";
 
 function Home() {
-  const { data, loading, error } = useFetch(
-    "https://shop-easy-apis.vercel.app/api/categories"
-  );
   const [currentSlide, setCurrentSlide] = useState(0);
+  const apiUrl = import.meta.env.VITE_API_URL;
+  const { data, loading, error } = useFetch(`${apiUrl}/api/categories`);
 
   const carouselItems = [
     {

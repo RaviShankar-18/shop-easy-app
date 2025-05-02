@@ -24,7 +24,6 @@ const Wishlist = () => {
         <h2 className="mb-4">Your Wishlist</h2>
 
         {favourites.length === 0 ? (
-          // Empty wishlist display
           <div className="text-center py-5">
             <div className="display-1 text-muted mb-4">
               <i className="bi bi-heart"></i>
@@ -36,7 +35,6 @@ const Wishlist = () => {
             </Link>
           </div>
         ) : (
-          // Wishlist with items - horizontal card layout
           <div className="row g-4">
             {favourites.map((product) => (
               <div key={product._id} className="col-12">

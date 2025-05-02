@@ -77,7 +77,6 @@ function ProductDetail() {
 
         {product && !loading && (
           <>
-            {/* Breadcrumb */}
             <nav aria-label="breadcrumb" className="mb-4">
               <ol className="breadcrumb">
                 <li className="breadcrumb-item">
@@ -99,9 +98,7 @@ function ProductDetail() {
               </ol>
             </nav>
 
-            {/* Product Details Section */}
             <div className="row g-4">
-              {/* Product Image */}
               <div className="col-lg-5 mb-4 mb-lg-0">
                 <div className="card border-0 shadow-sm">
                   <div className="card-img-top p-3 text-center">
@@ -115,7 +112,6 @@ function ProductDetail() {
                 </div>
               </div>
 
-              {/* Product Information */}
               <div className="col-lg-7">
                 <div className="card border-0 shadow-sm h-100">
                   <div className="card-body p-4">
@@ -177,7 +173,6 @@ function ProductDetail() {
                       <button
                         className="btn btn-primary me-2"
                         onClick={handleAddToCart}
-                        // disabled={isInCart}
                       >
                         <i className="bi bi-cart-plus me-2"></i>
                         {isInCart ? (
@@ -227,7 +222,6 @@ function ProductDetail() {
               </div>
             </div>
 
-            {/* Product Details Tabs - Simplified */}
             <div className="card border-0 shadow-sm mt-4">
               <div className="card-header bg-white p-0">
                 <ul className="nav nav-tabs border-0">
@@ -291,7 +285,6 @@ function ProductDetail() {
               </div>
             </div>
 
-            {/* Related Products */}
             {relatedProducts && relatedProducts.length > 0 && (
               <div className="mt-5">
                 <h3 className="mb-4">Related Products</h3>

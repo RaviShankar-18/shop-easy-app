@@ -8,14 +8,12 @@ const OrderSummary = () => {
   const { address, selectedAddressId } = useContext(AddressContext);
   const [orderPlaced, setOrderPlaced] = useState(false);
   const navigate = useNavigate();
-  console.log("clearCart", clearCart);
-  // Add a check for selectedAddressId validity
+
   const selectedAddress =
     selectedAddressId !== null && selectedAddressId !== undefined
       ? address[selectedAddressId]
       : null;
 
-  // Calculate total amount
   const totalAmount = cartItems.reduce(
     (total, item) => total + (item.price || 0) * (item.quantity || 1),
     0
@@ -51,7 +49,6 @@ const OrderSummary = () => {
     );
   }
 
-  // Redirect if no address selected
   if (!selectedAddress && !orderPlaced) {
     return (
       <div className="container py-5">

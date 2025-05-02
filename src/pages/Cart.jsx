@@ -26,7 +26,6 @@ const Cart = () => {
         <h2 className="mb-4">Shopping Cart</h2>
 
         {cartItems.length === 0 ? (
-          // Empty cart display
           <div className="text-center py-5">
             <div className="display-1 text-muted mb-4">
               <i className="bi bi-cart"></i>
@@ -40,9 +39,7 @@ const Cart = () => {
             </Link>
           </div>
         ) : (
-          // Cart with items
           <div className="row">
-            {/* Cart Items List */}
             <div className="col-lg-8">
               <div className="card shadow-sm mb-4">
                 <div className="card-body">
@@ -148,7 +145,6 @@ const Cart = () => {
               </div>
             </div>
 
-            {/* Order Summary */}
             <div className="col-lg-4">
               <div className="card shadow-sm mb-4">
                 <div className="card-header bg-transparent">

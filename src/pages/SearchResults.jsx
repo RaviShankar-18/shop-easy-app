@@ -16,7 +16,6 @@ function SearchResults() {
 
   const { data, loading, error } = useFetch(`${apiUrl}/api/products`);
 
-  // Filter products based on search term
   useEffect(() => {
     if (!data?.data?.products || !searchTerm) {
       setFilteredProducts([]);
@@ -60,7 +59,6 @@ function SearchResults() {
           </h5>
         </div>
 
-        {/* Loading state */}
         {loading && (
           <div className="text-center my-5 py-5">
             <div className="spinner-border text-primary" role="status">
@@ -70,7 +68,6 @@ function SearchResults() {
           </div>
         )}
 
-        {/* Error state */}
         {error && (
           <div className="alert alert-danger" role="alert">
             <i className="bi bi-exclamation-triangle me-2"></i>
@@ -78,7 +75,6 @@ function SearchResults() {
           </div>
         )}
 
-        {/* Empty results */}
         {!loading && !error && filteredProducts.length === 0 && (
           <div className="text-center my-5 py-5">
             <i className="bi bi-search display-1 text-muted"></i>
@@ -92,7 +88,6 @@ function SearchResults() {
           </div>
         )}
 
-        {/* Products grid */}
         <div className="row g-4">
           {filteredProducts.map((product) => (
             <div
