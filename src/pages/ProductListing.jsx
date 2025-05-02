@@ -8,13 +8,9 @@ import { FavouriteContext } from "../contexts/FavouriteContext";
 function ProductListing() {
   const { cartItems, addToCart } = useContext(CartContext);
   const { favourites, toggleFavourite } = useContext(FavouriteContext);
-  console.log("cartItems", cartItems);
-  console.log("favourites", favourites);
-
+  const apiUrl = import.meta.env.VITE_API_URL;
   const { category: paramCategory } = useParams();
-  const { data, loading, error } = useFetch(
-    "https://shop-easy-apis.vercel.app/api/products"
-  );
+  const { data, loading, error } = useFetch(`${apiUrl}/api/products`);
 
   const [selectedCategory, setSelectedCategory] = useState(
     paramCategory ? [paramCategory] : []

@@ -11,20 +11,18 @@ function ProductDetail() {
   const { favourites, toggleFavourite } = useContext(FavouriteContext);
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState("description");
+  const apiUrl = import.meta.env.VITE_API_URL;
 
-  // Fetch single product data
   const {
     data: productData,
     loading,
     error,
-  } = useFetch(`https://shop-easy-apis.vercel.app/api/products/${id}`);
+  } = useFetch(`${apiUrl}/api/products/${id}`);
 
   const product = productData?.data?.product;
 
   // Fetch related products (same category)
-  const { data: allProductsData } = useFetch(
-    "https://shop-easy-apis.vercel.app/api/products"
-  );
+  const { data: allProductsData } = useFetch(`${apiUrl}/api/products`);
 
   const relatedProducts = allProductsData?.data?.products
     ?.filter(
@@ -89,7 +87,7 @@ function ProductDetail() {
                 </li>
                 <li className="breadcrumb-item">
                   <Link
-                    to={`/category/${product.category}`}
+                    to={`/products/${product.category}`}
                     className="text-decoration-none"
                   >
                     {product.category}
@@ -179,7 +177,7 @@ function ProductDetail() {
                       <button
                         className="btn btn-primary me-2"
                         onClick={handleAddToCart}
-                        disabled={isInCart}
+                        // disabled={isInCart}
                       >
                         <i className="bi bi-cart-plus me-2"></i>
                         {isInCart ? (

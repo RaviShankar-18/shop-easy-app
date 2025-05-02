@@ -12,10 +12,9 @@ function SearchResults() {
   const { cartItems, addToCart } = useContext(CartContext);
   const { favourites, toggleFavourite } = useContext(FavouriteContext);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const apiUrl = import.meta.env.VITE_API_URL;
 
-  const { data, loading, error } = useFetch(
-    "https://shop-easy-apis.vercel.app/api/products"
-  );
+  const { data, loading, error } = useFetch(`${apiUrl}/api/products`);
 
   // Filter products based on search term
   useEffect(() => {

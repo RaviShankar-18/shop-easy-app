@@ -16,27 +16,9 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="col-md-4 mb-3 mb-md-0">
-            <div className="d-flex flex-column flex-sm-row justify-content-center gap-3">
-              <Link to="/" className="text-decoration-none text-white">
-                Home
-              </Link>
-              <Link to="/products" className="text-decoration-none text-white">
-                Products
-              </Link>
-              <Link
-                to="/categories"
-                className="text-decoration-none text-white"
-              >
-                Categories
-              </Link>
-            </div>
-          </div>
-
-          {/* Copyright */}
           <div className="col-md-4 text-md-end">
             <p className="small mb-0">
-              &copy; {new Date().getFullYear()} ShopEasy. All Rights Reserved.
+              &copy; 2025 ShopEasy. All Rights Reserved.
             </p>
           </div>
         </div>

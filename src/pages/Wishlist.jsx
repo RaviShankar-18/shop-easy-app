@@ -1,30 +1,3 @@
-// import { useContext } from "react";
-// import { Link } from "react-router-dom";
-// import { FavouriteContext } from "../contexts/FavouriteContext";
-
-// const Wishlist = () => {
-//   const { favourites } = useContext(FavouriteContext);
-//   return (
-//     <>
-//       <div className="container my-4">
-//         <h2 className="mb-4">Your Wishlist</h2>
-//         <div className="text-center py-5">
-//           <div className="display-1 text-muted mb-4">
-//             <i className="bi bi-heart"></i>
-//           </div>
-//           <h3>Your wishlist is empty</h3>
-//           <p className="text-muted">Save items you like for later!</p>
-//           <Link to="/products" className="btn btn-primary mt-3">
-//             Browse Products
-//           </Link>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default Wishlist;
-
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FavouriteContext } from "../contexts/FavouriteContext";
@@ -122,23 +95,24 @@ const Wishlist = () => {
                     </div>
                     <div className="col-md-2 col-lg-2 d-flex align-items-center justify-content-center border-start">
                       <div className="p-3 text-center">
-                        <button
-                          className="btn btn-primary w-100"
-                          onClick={() => handleAddToCart(product)}
-                        >
-                          <i className="bi bi-cart-plus me-1"></i>
-                          {cartItems &&
-                          cartItems.some((item) => item._id === product._id) ? (
-                            <Link
-                              to="/cart"
-                              className="text-white text-decoration-none"
-                            >
-                              Go to Cart
-                            </Link>
-                          ) : (
-                            "Add to Cart"
-                          )}
-                        </button>
+                        {cartItems &&
+                        cartItems.some((item) => item._id === product._id) ? (
+                          <Link
+                            to="/cart"
+                            className="btn btn-primary text-white text-decoration-none"
+                          >
+                            <i className="bi bi-cart-plus me-1"></i>
+                            Go to Cart
+                          </Link>
+                        ) : (
+                          <button
+                            className="btn btn-primary w-100"
+                            onClick={() => handleAddToCart(product)}
+                          >
+                            <i className="bi bi-cart-plus me-1"></i>
+                            Move to Cart
+                          </button>
+                        )}
                       </div>
                     </div>
                   </div>

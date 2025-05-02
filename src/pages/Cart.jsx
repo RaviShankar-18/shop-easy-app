@@ -3,14 +3,21 @@ import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/headers/Header";
 import { CartContext } from "../contexts/CartContext";
+import { FavouriteContext } from "../contexts/FavouriteContext";
 
 const Cart = () => {
   const { cartItems, removeFromCart } = useContext(CartContext);
+  const { favourites, toggleFavourite } = useContext(FavouriteContext);
   const [quantity, setQuantity] = useState(1);
 
   const totalPrice = cartItems.reduce((total, item) => {
     return total + item.price * quantity;
   }, 0);
+
+  const handleMoveToWishList = (item) => {
+    console.log(item);
+    toggleFavourite(item);
+  };
 
   return (
     <>
@@ -105,6 +112,26 @@ const Cart = () => {
                               >
                                 <i className="bi bi-trash"></i>
                               </button>
+                            </td>
+                            <td>
+                              {favourites.some(
+                                (favourite) => favourite._id === item._id
+                              ) ? (
+                                <Link
+                                  to="/favorites"
+                                  className="btn btn-primary"
+                                >
+                                  Go to Wishlist
+                                </Link>
+                              ) : (
+                                <Link
+                                  to="/favorites"
+                                  className="btn btn-primary"
+                                  onClick={() => handleMoveToWishList(item)}
+                                >
+                                  Move to Wishlist
+                                </Link>
+                              )}
                             </td>
                           </tr>
                         ))}

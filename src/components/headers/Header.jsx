@@ -34,9 +34,9 @@ function Header() {
           <div className="d-flex align-items-center gap-3 d-lg-none ms-auto">
             <Link
               to="/favorites"
-              className="btn btn-light rounded-circle p-2 position-relative"
+              className="btn btn-light rounded-circle position-relative"
             >
-              <i className="bi bi-heart"></i>
+              <i className="bi bi-heart" style={{ fontSize: "2rem" }}></i>
               {favourites.length > 0 && (
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                   {favourites.length}
@@ -46,9 +46,9 @@ function Header() {
 
             <Link
               to="/cart"
-              className="btn btn-light rounded-circle p-2 position-relative"
+              className="btn btn-light rounded-circle position-relative"
             >
-              <i className="bi bi-cart"></i>
+              <i className="bi bi-cart" style={{ fontSize: "2rem" }}></i>
               {cartItems.length > 0 && (
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                   {cartItems.length}
@@ -92,11 +92,11 @@ function Header() {
               tabIndex="-1"
             >
               <button
-                className="btn btn-light rounded-circle p-2"
+                className="btn btn-light rounded-circle"
                 onClick={() => setShowProfileMenu(!showProfileMenu)}
                 aria-expanded={showProfileMenu}
               >
-                <i className="bi bi-person"></i>
+                <i className="bi bi-person" style={{ fontSize: "2rem" }}></i>
               </button>
               <ul
                 className={`dropdown-menu dropdown-menu-end shadow-sm ${
@@ -126,9 +126,9 @@ function Header() {
 
             <Link
               to="/favorites"
-              className="btn btn-light rounded-circle p-2 mx-2 position-relative"
+              className="btn btn-light rounded-circle position-relative"
             >
-              <i className="bi bi-heart"></i>
+              <i className="bi bi-heart" style={{ fontSize: "2rem" }}></i>
               {favourites.length > 0 && (
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                   {favourites.length}
@@ -138,9 +138,9 @@ function Header() {
 
             <Link
               to="/cart"
-              className="btn btn-light rounded-circle p-2 mx-2 position-relative"
+              className="btn btn-light rounded-circle position-relative"
             >
-              <i className="bi bi-cart"></i>
+              <i className="bi bi-cart" style={{ fontSize: "2rem" }}></i>
               {cartItems.length > 0 && (
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                   {cartItems.length}
